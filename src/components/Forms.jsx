@@ -7,6 +7,9 @@ const initialValues = {
   email: "",
   password: "",
   confirmpass: "",
+  age: "",
+  doa: "",
+  resume: null,
 };
 
 const Forms = () => {
@@ -24,6 +27,7 @@ const Forms = () => {
     <>
       <div>
         <form onSubmit={handleSubmit}>
+          <h1>Registration Form</h1>
           <div>
             <p>Name</p>
             <input
@@ -51,6 +55,44 @@ const Forms = () => {
               onBlur={handleBlur}
             />
             {errors.email && touched.email ? <p>{errors.email}</p> : null}
+          </div>
+          <div>
+            <p>Age</p>
+            <input
+              type="number"
+              name="age"
+              id="age"
+              placeholder="Age"
+              value={values.age}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.age && touched.age ? <p>{errors.age}</p> : null}
+          </div>
+          <div>
+            <p>Date</p>
+            <input
+              type="date"
+              name="doa"
+              id="doa"
+              value={values.doa}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.doa && touched.doa ? <p>{errors.doa}</p> : null}
+          </div>
+          <div>
+            <p>Upload resume</p>
+            <input
+              type="file"
+              name="resume"
+              id="resume"
+              value={values.resume}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              accept=".pdf,.doc"
+            />
+            {errors.resume && touched.resume ? <p>{errors.resume}</p> : null}
           </div>
           <div>
             <p>Password</p>
